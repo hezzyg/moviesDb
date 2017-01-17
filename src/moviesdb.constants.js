@@ -16,7 +16,7 @@ angular.module('MoviesDb')
 .constant("CONST", {
 	apiKey : '6d08710adb5b5c85a13d9906bc6e8646',
 	movieQueryUrl : 'https://api.themoviedb.org/3/movie/',
-	moviedetailsQueryUrl: 'http://api.themoviedb.org/3/search/movie',
+	moviedetailsQueryUrl: 'https://api.themoviedb.org/3/search/movie',
 	movieSearchUrl: 'https://api.themoviedb.org/3/search/movie',
 	personSearchUrl: 'https://api.themoviedb.org/3/person/',
 	discoverUrl: 'https://api.themoviedb.org/3/discover/movie',

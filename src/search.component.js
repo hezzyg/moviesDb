@@ -8,8 +8,7 @@ SearchController.$inject = ['$state'];
 function SearchController ($state) {
 	var $ctrl = this;
 
-	$ctrl.submit = function (searchTerm) {
-		console.log("fdgdgdf" + searchTerm );
+	$ctrl.submit = function (searchTerm) {		
 		$state.go('search', {movieName: searchTerm});		
 	};
 }
