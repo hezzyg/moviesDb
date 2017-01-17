@@ -1,0 +1,26 @@
+<!-- For MD LG screens -->
+<div class="hidden-xs hidden-sm">
+	<div class="rating-wrapper" ng-if="$ctrl.rating > 0">	
+			<span ng-repeat="i in $ctrl.getNumber($ctrl.rating) track by $index">
+				<span class="glyphicon glyphicon-star"></span>
+			</span>
+			<span class="glyphicon glyphicon-star half" ng-if="$ctrl.isDecimal($ctrl.rating)"></span> 
+			({{$ctrl.rating}})	
+	</div>
+	<!-- IF NO RATING -->
+	<div class="rating-wrapper" ng-if="$ctrl.rating == 0">  
+	  	<span class="glyphicon glyphicon-star grey" ng-repeat="i in [1,1,1,1,1,1,1,1,1,1] track by $index"></span> 
+	</div>
+</div>
+<!-- For SM XS screens -->
+<div class="hidden-md hidden-lg">
+	<div class="rating-wrapper" ng-if="$ctrl.rating > 0">					
+		<span class="glyphicon glyphicon-star"></span> ({{$ctrl.rating}})	
+		</div>
+		<!-- IF NO RATING -->
+		<div class="rating-wrapper" ng-if="$ctrl.rating == 0">  
+		  	<span class="glyphicon glyphicon-star grey"></span> 
+		</div>
+	</div>
+</div>
+

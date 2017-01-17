@@ -1,0 +1,157 @@
+<link rel="stylesheet" type="text/css" href="css/movie-details.style.css">
+
+<!-- angular modal -->
+ <div class="youtube-modal">
+ <script type="text/ng-template" id="trailerModal">  
+    <div class="modal-body" id="modal-body">
+    	<div class="embed-responsive embed-responsive-16by9">
+        <iframe id="player" ng-src="{{trailCtrl.address}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>    
+</script>
+</div>
+
+<!-- <div class="container"> -->
+<div class="row padding-top-20 margin-top">
+	
+	<!-- If no movie param at all -->
+	<div class="col-md-12 col-sm-12 noMovieDiv pacifico-font" ng-if="!movieDetailsCtrl.movie">
+		<span class="glyphicon glyphicon-arrow-up"></span>
+		<br/>
+		Please use the Search bar above to search for movies
+	</div>
+
+	<!-- if movie wasnt found -->
+	<div class="col-md-12 col-sm-12 noMovieDiv pacifico-font" ng-if="movieDetailsCtrl.movie == 'no movie found' ">
+		<span class="glyphicon glyphicon-remove"></span>  We could not find a movie matching your search!
+		<br>
+		Please try again
+	</div>
+
+	<!-- if request was rejected -->
+	<div class="col-md-12 col-sm-12 noMovieDiv pacifico-font" ng-if="movieDetailsCtrl.movie == 'network problem' ">
+		<span class="glyphicon glyphicon-arrow-up"></span>
+		<br/>
+		Something went wrong... Please try again
+	</div>
+
+	<!-- if movie exsits -->
+	<div ng-if="movieDetailsCtrl.movie.title">
+		<div class="col-md-4 col-sm-4 hidden-xs">
+			<img class="shadow img-responsive" 
+				ng-src="http://image.tmdb.org/t/p/w342{{movieDetailsCtrl.movie.poster_path}}"
+				ng-if="movieDetailsCtrl.movie.poster_path">
+			<img class="shadow img-responsive" 
+				ng-src="images/poster-replacement.png"
+				ng-if="!movieDetailsCtrl.movie.poster_path">			
+			<br/><br/>
+			<table class="table table-responsive" id="detailTable">
+				<tr ng-if="movieDetailsCtrl.movie.release_date"><td class="th scheme-color-4">Release date</td><td>{{movieDetailsCtrl.movie.release_date | date: 'd/M/yyyy'}}</td></tr>
+				<tr ng-if="movieDetailsCtrl.movie.runtime"><td class="th scheme-color-4">Runtime</td><td>{{movieDetailsCtrl.movie.runtime}} min</td></tr>
+				<tr ng-if="movieDetailsCtrl.movie.budget"><td class="th scheme-color-4">Budget</td><td>{{movieDetailsCtrl.movie.budget | currency : $ : 0}}</td></tr>
+				<tr ng-if="movieDetailsCtrl.movie.revenue"><td class="th scheme-color-4">Revenue</td><td>{{movieDetailsCtrl.movie.revenue | currency : $ : 0}}</td></tr>				
+			</table>			
+		</div>
+		<div class="col-md-6 col-sm-8 col-xs-12">
+			<div class="row">
+				<!-- POSTER For XS screens -->
+				<div class="col-xs-4 hidden-lg hidden-md hidden-sm">
+					<img class="shadow img-responsive" 
+						ng-src="http://image.tmdb.org/t/p/w342{{movieDetailsCtrl.movie.poster_path}}"
+						ng-if="movieDetailsCtrl.movie.poster_path">
+					<img class="shadow img-responsive" 
+						ng-src="images/poster-replacement.png"
+						ng-if="!movieDetailsCtrl.movie.poster_path">
+				</div>
+				<!-- ************* -->
+				<div class="col-md-12 col-sm-12 col-xs-7">
+					<h2 id="movieTitle">{{movieDetailsCtrl.movie.title}}&nbsp;<span id="year">{{movieDetailsCtrl.movie.release_date | date: 'yyyy'}}</span></h2>	
+					<!-- Rating component -->
+					<stars-rating 
+						rating="movieDetailsCtrl.movie.vote_average"
+						ng-if="movieDetailsCtrl.movie.status !=='Planned'">					
+					</stars-rating>
+					<div ng-if="movieDetailsCtrl.movie.status =='Planned'" class="movie-status">
+						<h4>(Planned)</h4>
+					</div>			
+					<button type="button" id="trailsBtnSmall" class="btn scheme-btn hidden-md hidden-lg" 
+					ui-sref=".trailer({add : movieDetailsCtrl.youtubeAdd})" ng-if="movieDetailsCtrl.youtubeAdd">Watch trailer
+					</button>
+				</div>
+			</div>
+			<!-- table for XS screens -->			
+			<div class="row hidden-lg hidden-md hidden-sm">
+				<div class="col-xs-12 xs-table-row">
+					<table class="table table-responsive" id="detailTable">
+						<tr ng-if="movieDetailsCtrl.movie.release_date"><td class="th scheme-color-4">Release date</td><td>{{movieDetailsCtrl.movie.release_date | date: 'd/M/yyyy'}}</td></tr>
+						<tr ng-if="movieDetailsCtrl.movie.runtime"><td class="th scheme-color-4">Runtime</td><td>{{movieDetailsCtrl.movie.runtime}} min</td></tr>
+						<tr ng-if="movieDetailsCtrl.movie.budget"><td class="th scheme-color-4">Budget</td><td>{{movieDetailsCtrl.movie.budget | currency : $ : 0}}</td></tr>
+						<tr ng-if="movieDetailsCtrl.movie.revenue"><td class="th scheme-color-4">Revenue</td><td>{{movieDetailsCtrl.movie.revenue | currency : $ : 0}}</td></tr>				
+					</table>
+				</div>
+			</div>
+			<!-- ******************** -->
+			<div class="row">
+				<div class="col-md-12 col-sm-11 col-xs-11">
+					<h3 class=" scheme-color-4">Overview</h3>
+					<p>{{movieDetailsCtrl.movie.overview}}</p>
+					<p ng-if="!movieDetailsCtrl.movie.overview">We are sorry... Overview is not available</p>
+					<div ng-if="movieDetailsCtrl.listLength(movieDetailsCtrl.movie.production_companies) > '-1' ">
+						<h3 class=" scheme-color-4">Production companies</h3>
+						<p><span  ng-repeat="company in movieDetailsCtrl.movie.production_companies | limitTo:movieDetailsCtrl.listLength(movieDetailsCtrl.movie.production_companies)">{{company.name}}, </span>
+						<span  ng-repeat="company in movieDetailsCtrl.movie.production_companies | lastPostion">{{company.name}} </span>
+						</p>
+					</div>
+
+					<div ng-if="movieDetailsCtrl.listLength(movieDetailsCtrl.movie.genres) > '-1' ">
+						<h3 class=" scheme-color-4">Genres</h3>
+						<p><span  ng-repeat="genre in movieDetailsCtrl.movie.genres | limitTo:movieDetailsCtrl.listLength(movieDetailsCtrl.movie.genres)">{{genre.name}}, </span>
+						<span  ng-repeat="genre in movieDetailsCtrl.movie.genres | lastPostion">{{genre.name}}</span></p>
+					</div>
+					
+					<div ng-if="movieDetailsCtrl.listLength(movieDetailsCtrl.movie.credits.cast) > '-1' ">
+						<h3 class="scheme-color-4">Cast</h3>
+						
+							<div ng-repeat="actor in movieDetailsCtrl.movie.credits.cast | limitTo : 4">
+								<div class="clearfix castRow hidden-xs hidden-sm" ng-if="$index % 2 == 0"></div>
+								<div class="col-md-5 col-sm-12 col-xs-11 middle">
+									<div class="castPic"
+										
+											uib-popover-template="movieDetailsCtrl.popoverTemplateUrl" 
+											popover-placement="right" 
+											popover-animation="true" 
+											popover-trigger="{outsideClick: outsideClick}"
+											ng-click="movieDetailsCtrl.getInfo(actor.id, $index)">
+										
+											<img  
+												class="castPic img-responsive" 
+												ng-src="https://image.tmdb.org/t/p/w45/{{actor.profile_path}}"
+												ng-if="actor.profile_path">
+											<img  
+												class="castPic img-responsive" 
+												ng-src="images/person.png"
+												ng-if="!actor.profile_path">								
+									</div>
+									<div class="castDesc">						
+										<span class="castName">{{actor.name}}</span><br/>
+										<span ng-if="actor.character">as {{actor.character}}</span>
+									</div>						
+								</div>		
+							</div>				
+						<div class="clearfix"></div>
+						<hr/>
+						<a ui-sref="fullCast({movieId : movieDetailsCtrl.movie.id})">See full cast >></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-2 hidden-xs hidden-sm">
+			<button id="trailerBtn" type="button" class="btn btn-lg scheme-btn" 
+			ui-sref=".trailer({add : movieDetailsCtrl.youtubeAdd})" ng-if="movieDetailsCtrl.youtubeAdd">Watch trailer
+			</button>	
+		</div>			
+
+	</div> 
+	
+</div>

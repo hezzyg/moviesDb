@@ -1,0 +1,5 @@
+<div>
+	<b>{{actor.actor_info.name}}</b>	
+	<br/>
+	<p>{{actor.actor_info.biography | limitTo: 300}} <b><i><a ui-sref="actorDetails({actorId: actor.actor_info.id})">See full details...</a></i></b></p>
+</div>

@@ -1,0 +1,13 @@
+<!-- Known for section -->
+<div>
+	<div class="movie-thumb col-md-3 col-sm-3 col-xs-6" ng-repeat="movie in $ctrl.movieslist | limitTo: 4">
+		<a ui-sref="movieDetails({movieId: movie.id})">
+			<img ng-src="https://image.tmdb.org/t/p/w150{{movie.poster_path}}" alt="{{movie.title}} poster"
+				class="shadow img-responsive" ng-if="movie.poster_path">
+			<img ng-src="images/poster-replacement.png" alt="{{movie.title}} poster"
+				class="shadow img-responsive" ng-if="!movie.poster_path">			
+			<p class="top-margin-10">{{movie.title}}</p>
+		</a>
+	</div>
+</div>
+<div class="clearfix"></div>

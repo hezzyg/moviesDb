@@ -1,0 +1,146 @@
+.popover {
+	z-index: 1;
+}
+
+.carousel-inner > .item > img {  
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  height: 300px;
+}
+
+h2{	
+	font-weight: 600;	
+}
+
+#movieTitle {
+	/*float: left;*/
+	margin-top: 0;
+}
+/*
+#poster{
+	width: 342px;
+	z-index: 10;	
+}*/
+
+#detailMovieRow{
+	
+	padding-bottom: 60px;
+
+}
+
+#year{
+	color: grey;
+	font-size: 0.8em;
+	font-weight: 300;
+}
+
+#icons img{
+	width: 17px;
+	margin-bottom: 25px;
+	
+
+}
+#voteCount{
+	color: grey;
+	position: relative;
+	top: -10px;
+}
+
+.castPic{	
+	float: left;
+	margin-right: 12px;
+}
+
+.castPic:hover {
+	cursor: pointer;
+}
+
+.castName{
+	text-decoration: underline;
+	font-weight: bold;	
+
+}
+
+.castDesc{
+	padding-top: 15px;
+}
+
+.castRow{
+	margin-bottom: 30px;
+}
+
+#detailTable{
+	width: 95%;
+}
+
+.noMovieDiv{	
+	text-align: center;
+	font-size: 1.7em;
+	font-weight: bold;
+	color: grey;	
+	min-height: 400px;
+	margin-top: 140px;
+	
+}
+
+.noMovieDiv span {
+	font-size: 200%;
+	margin-bottom: 30px;
+}
+
+#trailerBtn{
+	float: right;
+	position: relative;
+	outline: none;
+}
+
+#trailerBtn:focus {
+	outline: none;
+	color: #d5f4e6;
+}
+
+.modal{
+background-color: rgba(0,0,0,0.7);	
+	/*background-image: url(../images/curtains.png);
+	background-repeat: no-repeat;
+	background-size: cover;	*/
+}
+
+.modal-dialog {		
+	margin-top: 250px;		
+  	/*width: 865px; 
+	height: 525px;*/
+
+}
+.modal-content {		
+	background-color: transparent;
+}
+
+#player {
+	/*width: 835px; 
+	height: 505px;*/
+	/*width: 835px; 
+	height: 505px;*/
+}
+
+.youtube-embed {
+
+}
+
+.popover {
+width: 400px;
+}
+
+.movie-status{
+	font-style: italic;
+	color: #3073AD;
+}
+
+.poster-replacment {
+	widows: 342px;
+	height: 489px;
+	background-color: #c4c4c4;
+	color: #595959;
+	font-size: 300px;	
+}

@@ -1,0 +1,33 @@
+<div >
+	<div class="movie-card-block shadow">
+		<img 
+			class="movie-card-poster img-responsive" 
+			ng-src="https://image.tmdb.org/t/p/w342/{{$ctrl.movie.poster_path}}"
+			my-src="https://image.tmdb.org/t/p/w342/{{$ctrl.movie.poster_path}}"
+			ng-mouseenter="$ctrl.showDetails = true"
+			ng-if="$ctrl.movie.poster_path">
+		<img
+			class="movie-card-poster img-responsive" 
+			ng-src="images/poster-replacement.png"
+			ng-mouseenter="$ctrl.showDetails = true"
+			ng-if="!$ctrl.movie.poster_path">
+		<!-- <md-progress-circular 
+			md-mode="indeterminate" 
+			md-diameter="100">
+		</md-progress-circular> -->
+
+		<a ui-sref="movieDetails({movieId: $ctrl.movie.id})">
+			<div class="movie-card-details" ng-show="$ctrl.showDetails" ng-if="$ctrl.firstHide" ng-mouseleave="$ctrl.showDetails = flase">
+					<h2>{{$ctrl.movie.title}}</h2>		
+					<!-- <div class="clear"></div> -->
+					<!-- Rating component -->
+					<stars-rating 
+						rating="$ctrl.movie.vote_average"
+						ng-if="$ctrl.movie.status !=='Planned'">				
+					</stars-rating>		
+					<br>			
+					<h4 class="movie-card-overview hidden-xs"><i>{{$ctrl.movie.overview}}</i></h4>				
+			</div>	
+		</a>
+	</div>	
+</div>

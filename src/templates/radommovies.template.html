@@ -1,0 +1,27 @@
+<div class="row padding-top-20 margin-top">		
+	<div ng-class="[{'hide-explanation' : !$ctrl.showExplanation}, {'explanation-div' : $ctrl.showExplanation}]">
+		<h4 class="pacifico-font"><span class="glyphicon glyphicon-arrow-left"></span> Click this button to discover more movies</h4>
+	</div>	
+	<div class="center random-title pacifico-font shadow" 
+		ng-if="!$ctrl.isEmpty()">
+		<div id="hr1"><h1>Welcome</h1></div>
+		<div id="hr2"><h2>To The Open Source Movies Db Project</h2></div>		
+	</div>
+		<p id="listHeader" class="pacifico-font center" ng-if="!$ctrl.isEmpty()">Below are {{$ctrl.genre()}} Movies released on {{$ctrl.year}}</p>		
+</div>
+<div class="row">	
+	<div ng-repeat="movie in $ctrl.movies">
+		<div class="clearfix hidden-xs" ng-if="$index % 3 == 0"></div>
+		<div class="clearfix hidden-lg hidden-md hidden-sm" ng-if="$index % 2 == 0"></div>
+		<movie-card movie="movie" class="col-md-4 col-sm-4 col-xs-6"></movie-card>
+	</div>		
+	<!-- CANT FIND MATCHING MOVIES MESSAGE -->
+	<div class="center pacifico-font" ng-if="$ctrl.isEmpty()">
+		<h3>Oooops, We could not find any movies matching these parameters</h3>
+		<h3>try something else instead</h3>	
+	</div>
+</div>
+
+	<!-- <div class="row" style="height:450px">
+		<movies-carousel></movies-carousel>			
+	</div> -->

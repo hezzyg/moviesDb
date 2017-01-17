@@ -1,0 +1,154 @@
+/
+/*Extra small devices*/
+@media screen and (max-width: 767px) {
+
+	#navbar-search{
+		width: 85%;
+	}
+
+	.navbar-brand {
+		margin-bottom: 0;
+	}
+
+	.input-group-addon.search-btn-addon {
+		background-color: #618685;
+		color: #d5f4e6;
+	}
+
+	#hr1 h1 {
+		font-size: 150%;
+	}
+
+	#hr2 h2{			
+		font-size:  100%;
+		line-height: 110%;		
+	}
+
+	#listHeader {
+		font-size: 1.8em;
+	}
+	
+	.explanation-div {
+		margin-left: 160px;
+	}
+
+	.hide-explanation {
+		margin-left: 160px;
+	}
+
+	.discover-btn-position {
+		top: 57.5px;
+		margin-left: 0;
+	}
+
+	.discover-bar-open {
+		width: 100%;	
+		/*width: auto;*/
+		/*display: block;*/
+		max-height: none;
+		top: 57.5px;
+		margin-left: 0;
+	}
+
+	.discover-form {
+		margin-left: unset;
+		padding-top: 0;	
+		display: block;	
+		/*margin-top: 10px;*/
+		/*display: block;*/
+	}
+
+	.form-anim {
+		transition: 0.3s;
+	}
+
+	.discover-menu-margin-left {
+		margin-left: unset;
+	}
+
+	.form-inline div.form-group {
+		display: block;
+	}
+
+	a.btn.discover-btn {
+		height: unset;
+	}
+
+	.xs-table-row {
+		margin-top: 20px;
+	}
+
+	#trailsBtnSmall {
+		margin: 10px 0px 7px 5px;
+	}
+
+	.popover{
+    max-width: 70%; 
+	}
+
+	.actor-details-paragraph{
+		margin-top: 15px;
+	}
+
+	.actor-params {
+		text-align: unset;
+	}
+
+	.movie-thumb {
+		text-align: unset;
+	}
+
+}
+/* Small devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991px) { 
+	
+	#hr1 h1 {
+		font-size: 200%;
+	}
+
+	#hr2 h2{			
+		font-size:  150%;		
+	}
+
+	#listHeader {
+		font-size: 2.2em;
+	}
+
+	.movie-card-details h2 {
+		font-size: 120%;
+	}
+
+	.movie-card-overview {
+		font-size: 100%;
+	}
+
+	.castPic {
+		margin-bottom: 10px;
+	}
+
+	.actor-params {
+		margin-top: 15px;
+		margin-bottom: 15px;
+		padding-top: 5px;
+		padding-bottom: 10px;
+		border-top: 2sssspx solid #618685;
+		border-bottom: 2px solid #618685;
+	}
+
+	#trailsBtnSmall {
+		margin: 7px 0px 7px 5px;
+	}	
+
+	.discover-bar-open {
+		width: auto;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media screen and (min-width: 992px)  and (max-width: 1199px) { 
+	
+	
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) { ... }

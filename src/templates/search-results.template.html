@@ -1,0 +1,54 @@
+<div class="row padding-top-20 margin-top">	
+	<div class="col-md-12">
+		<h3>Search Results for 
+			<span class="search-term scheme-color-4">"{{searchResultsCtrl.term}}"</span>
+		</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12 search-results-view-controls">
+		<div class="col-md-2 col-sm-4 col-xs-12">		
+			View 
+			<span 
+			title="list view" 
+			class="glyphicon glyphicon-th-list scheme-color-0" 
+			ng-class="[{unclickable: !$ctrl.galleryView}, {'scheme-color-4' : !$ctrl.galleryView}]"			
+			ng-click="$ctrl.galleryView = !$ctrl.galleryView"></span>			
+			<span 
+			title="gallery view" 
+			class="glyphicon glyphicon-th scheme-color-0" 
+			ng-class="[{unclickable: $ctrl.galleryView}, {'scheme-color-4' : $ctrl.galleryView}]"
+			ng-click="$ctrl.galleryView = !$ctrl.galleryView"></span>
+		</div>
+		<div class="col-md-4 col-sm-6 col-xs-12">
+			Sort by 
+			<span class="btn-sort scheme-color-0" ng-click="searchResultsCtrl.sortByRelevance()" ng-class="[{'scheme-color-4' : searchResultsCtrl.byRelevance}]">Relevance</span> 
+			&nbsp;&nbsp;/
+			<span class="btn-sort scheme-color-0" ng-click="searchResultsCtrl.sortByYear()">
+				Year 
+				<span class="glyphicon glyphicon-chevron-up" ng-class="{'scheme-color-4' : (searchResultsCtrl.byYearDsc && searchResultsCtrl.byYear)}"></span> 
+				<span class="glyphicon glyphicon-chevron-down" ng-class="{'scheme-color-4' : (!searchResultsCtrl.byYearDsc && searchResultsCtrl.byYear)}"></span>
+			</span>
+		</div>
+	</div>	
+</div>
+<div class="row">
+	<br/>			
+	<div class="center pacifico-font" ng-if="searchResultsCtrl.results.total_results == 0">
+		<h3>
+			Oooops, We could not find any movies matching <span class="search-term">{{searchResultsCtrl.term}}</span>
+		</h3>
+		<h3>Please try again or try "Discover Movies" above</h3>
+	</div>
+</div>
+<!-- SEARCH RESULTS LIST VIEW -->		
+<div class="row results-container" ng-show="!$ctrl.galleryView">		
+	<results list="searchResultsCtrl.list" class="col-md-12"></results>		
+</div>
+<!-- SEARCH RESULTS GALLERY VIEW -->		
+<div class="row col-md-12" ng-show="$ctrl.galleryView">		
+	<div ng-repeat="movie in searchResultsCtrl.list">
+		<div class="clearfix" ng-if="$index % 3 == 0"></div>	
+		<movie-card movie="movie" class="col-md-4 col-sm-4"></movie-card>
+	</div>
+</div>	

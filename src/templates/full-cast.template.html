@@ -1,0 +1,136 @@
+<div class="row padding-top-20 margin-top">
+	<!-- poster for MD LG screens -->
+	<div class="col-md-4 hidden-xs hidden-sm">
+		<img 
+			ng-src="http://image.tmdb.org/t/p/w342{{FullCastCtrl.movie.poster_path}}"
+			ng-if="FullCastCtrl.movie.poster_path" class="shadow img-responsive" width="300px">
+
+		<img
+			ng-src="images/poster-replacement.png"
+			ng-if="!FullCastCtrl.movie.poster_path" class="shadow img-responsive" width="185px"
+			>				
+	</div>
+	<div  class="col-md-7 col-sm-7">
+		<h2 id="movieTitle"><a ui-sref="movieDetails({movieId : FullCastCtrl.movie.id})">{{FullCastCtrl.movie.title}}</a>&nbsp;<span id="year">{{FullCastCtrl.movie.release_date | date: 'yyyy'}}</span></h2>			
+		<!-- Rating component -->
+		<stars-rating 
+			rating="FullCastCtrl.movie.vote_average"
+			ng-if="FullCastCtrl.movie.status !=='Planned'">					
+		</stars-rating>
+		<!-- <div ng-if="FullCastCtrl.movie.status =='Planned'" class="movie-status"><h4>(Planned)</h4></div>
+		<p>{{FullCastCtrl.movie.overview}}</p>
+		</div>	 -->		
+		<h2 class="">Full Cast & Crew</h2>		
+		<div ng-if="FullCastCtrl.jobs.Directing">
+			<h3 class="jobs-title">Directed by</h3>
+			<ul class="jobs-name"">
+				<li 
+				ng-repeat="director in FullCastCtrl.jobs.Directing" 
+				ng-if="director.job == 'Director'">
+				{{director.name}}
+				</li>
+			</ul>
+		</div>
+		<div ng-if="FullCastCtrl.jobs.Writing">
+			<h3 class="jobs-title">Writing Credits</h3>
+			<table class="table writing-table table-responsive">
+				<tr ng-repeat="writer in FullCastCtrl.jobs.Writing">
+					<td>{{writer.name}}</td>
+					<td>{{writer.job}}</td>
+				</tr>				
+			</table>
+		</div>	
+	</div>
+	<!-- poster for SM screens -->
+	<div class="col-sm-4 hidden-md hidden-lg hidden-xs">
+		<img 
+			ng-src="http://image.tmdb.org/t/p/w342{{FullCastCtrl.movie.poster_path}}"
+			ng-if="FullCastCtrl.movie.poster_path" class="shadow img-responsive" width="300px">
+
+		<img
+			ng-src="images/poster-replacement.png"
+			ng-if="!FullCastCtrl.movie.poster_path" class="shadow img-responsive" width="185px"
+			>				
+	</div>
+</div>	
+<div class="row margin-top">
+	<div class="col-md-6 col-sm-6">
+		<h3 class="jobs-title">Cast</h3>
+		<div id="castDiv" class="col-md-11 col-sm-11">
+			<table class="table table-hover table-responsive">
+				<tr class="cast-row" ng-repeat="actor in FullCastCtrl.movie.credits.cast">
+					<td>
+						<a ui-sref="actorDetails({actorId: actor.id})">
+						<img  
+							class="castPic img-responsive" 
+							ng-src="https://image.tmdb.org/t/p/w45/{{actor.profile_path}}"
+							ng-if="actor.profile_path">
+						<img  
+							class="castPic img-responsive" 
+							ng-src="images/person.png"
+							ng-if="!actor.profile_path">
+						</a>
+					</td>
+					<td><a ui-sref="actorDetails({actorId: actor.id})">{{actor.name}}</a></td>
+					<td><span ng-if="actor.character">as {{actor.character}}</span></td>
+				</tr>
+			</table>				
+		</div>
+	</div>
+	<div class="col-md-6 col-sm-11">			
+		<div ng-if="FullCastCtrl.jobs.Production">
+			<h3 class="jobs-title">Produced by</h3>
+			<table class="table writing-table table-responsive">
+				<tr ng-repeat="producer in FullCastCtrl.jobs.Production">
+					<td><a ui-sref="actorDetails({actorId: producer.id})">{{producer.name}}</a></td>
+					<td>{{producer.job}}</td>
+				</tr>				
+			</table>
+		</div>
+		<div ng-if="FullCastCtrl.jobs.Sound">
+			<h3 class="jobs-title">Music & Sound by</h3>
+			<table class="table writing-table table-responsive">
+				<tr ng-repeat="sound in FullCastCtrl.jobs.Sound">
+					<td><a ui-sref="actorDetails({actorId: sound.id})">{{sound.name}}</a></td>
+					<td>{{sound.job}}</td>
+				</tr>				
+			</table>
+		</div>
+		<div ng-if="FullCastCtrl.jobs.Camera">
+			<h3 class="jobs-title">Cinematography by</h3>
+			<table class="table writing-table table-responsive">
+				<tr ng-repeat="Camera in FullCastCtrl.jobs.Camera">
+					<td><a ui-sref="actorDetails({actorId: Camera.id})">{{Camera.name}}</a></td>
+					<td>{{Camera.job}}</td>
+				</tr>				
+			</table>
+		</div>			
+		<div ng-if="FullCastCtrl.jobs.Editing">
+			<h3 class="jobs-title">Film Editing by</h3>
+			<table class="table writing-table table-responsive">
+				<tr ng-repeat="Editing in FullCastCtrl.jobs.Editing">
+					<td><a ui-sref="actorDetails({actorId: Editing.id})">{{Editing.name}}</a></td>
+					<td>{{Editing.job}}</td>
+				</tr>				
+			</table>
+		</div>
+		<div ng-if="FullCastCtrl.jobs.Art">
+			<h3 class="jobs-title">Art Direction by</h3>
+			<table class="table writing-table table-responsive">
+				<tr ng-repeat="Art in FullCastCtrl.jobs.Art">
+					<td><a ui-sref="actorDetails({actorId: Art.id})">{{Art.name}}</a></td>
+					<td>{{Art.job}}</td>
+				</tr>				
+			</table>
+		</div>
+		<div ng-if="FullCastCtrl.jobs['Costume & Make-Up']">
+			<h3 class="jobs-title">Costume & Make-Up by</h3>
+			<table class="table writing-table table-responsive">
+				<tr ng-repeat="Costume in FullCastCtrl.jobs['Costume & Make-Up']">
+					<td><a ui-sref="actorDetails({actorId: Costume.id})">{{Costume.name}}</a></td>
+					<td>{{Costume.job}}</td>
+				</tr>				
+			</table>
+		</div>
+	</div>		
+</div>	

@@ -1,0 +1,82 @@
+<div class="row padding-top-20 margin-top">
+	<div class="col-md-4 col-sm-4 col-xs-6">
+		<img 
+		ng-src="https://image.tmdb.org/t/p/w342/{{actorCtrl.info.profile_path}}"
+		ng-if="actorCtrl.info.profile_path"
+		class="shadow img-responsive">
+		<img 
+		ng-src="images/poster-replacement.png"
+		ng-if="!actorCtrl.info.profile_path"
+		class="shadow img-responsive">
+	</div>
+	<div class="col-md-5 col-sm-8 col-xs-11 actor-details-paragraph">
+		<h2 class="actor-name">{{actorCtrl.info.name}}</h2>
+		<br/>
+		<h3 class="scheme-color-4">Biography</h3>
+		<br/>
+		<p>{{actorCtrl.info.biography}}</p>
+
+	</div>
+	<!-- Column for MD LG screens -->
+	<div class="col-md-3 hidden-xs hidden-sm">			
+		<div ng-if="actorCtrl.info.birthday">
+			<h4 class="scheme-color-4">Birthday</h4>
+			{{actorCtrl.info.birthday | date: 'd/M/yyyy'}}	
+			<hr>			
+		</div>
+		<div ng-if="actorCtrl.info.place_of_birth">
+			<h4 class="scheme-color-4">Born in</h4>
+			{{actorCtrl.info.place_of_birth}}
+			<hr>				
+		</div>
+		<div ng-if="actorCtrl.info.deathday">
+			<h4 class="scheme-color-4">Died on</h4>
+			{{actorCtrl.info.deathday | date: 'd/M/yyyy'}}	
+			<hr>				
+		</div>
+		<div ng-if="actorCtrl.info.birthday && !actor.info.deathday">
+			<h4 class="scheme-color-4">Age</h4>
+			{{actorCtrl.age}}			
+			<hr>				
+		</div>
+	</div>
+</div>
+<div class="row">
+	<!-- row for XS SM screens -->
+	<div class="hidden-md hidden-lg">
+		<div ng-if="actorCtrl.info.birthday" class="col-sm-4 col-xs-12 center actor-params">
+			<h4 class="scheme-color-4">Birthday</h4>
+			{{actorCtrl.info.birthday | date: 'd/M/yyyy'}}
+		</div>
+		<div ng-if="actorCtrl.info.place_of_birth" class="col-sm-4 col-xs-12 center actor-params">
+			<h4 class="scheme-color-4">Born in</h4>
+			{{actorCtrl.info.place_of_birth}}
+		</div>
+		<div ng-if="actorCtrl.info.deathday" class="col-sm-4 col-xs-12 center actor-params">
+			<h4 class="scheme-color-4">Died on</h4>
+			{{actorCtrl.info.deathday | date: 'd/M/yyyy'}}
+		</div>
+		<div ng-if="actorCtrl.info.birthday && !actor.info.deathday" class="col-sm-4 col-xs-12 center actor-params">
+			<h4 class="scheme-color-4">Age</h4>
+			{{actorCtrl.age}}			
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-11">
+		<h3 class="scheme-color-4">Known For</h3>
+		<br/>
+		<movie-credits 
+			movieslist="actorCtrl.info.movie_credits.cast">
+		</movie-credits>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<h3 class="scheme-color-4">Filmography</h3>
+		<br/>
+		<filmography 
+			films="actorCtrl.info.movie_credits.cast">				
+		</filmography>
+	</div>
+</div>

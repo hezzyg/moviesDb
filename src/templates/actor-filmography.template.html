@@ -1,0 +1,21 @@
+<div class=" col-md-8">
+	<table class="table table-striped table-responsive">
+		<tbody>
+			<tr ng-repeat="film in $ctrl.films | orderBy:'-release_date'">
+				<td class="filmography-li" >
+					<a ui-sref="movieDetails({movieId: film.id})">		
+						<b>{{film.title}}</b>
+						<br>
+						<br ng-if="!film.character">
+						<span ng-if="film.character" class="character">(as {{film.character}})</span>
+					</a>
+				</td>
+				<td>
+					<a ui-sref="movieDetails({movieId: film.id})">				
+						{{film.release_date | date: 'yyyy'}}
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

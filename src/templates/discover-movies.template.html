@@ -1,0 +1,115 @@
+<div class="col-md-12 co-sm-12 col-xs-12 discover-btn-position shadow" 
+ng-class="[{'discover-bar-open' : !$ctrl.show}, {'discover-btn-position' : $ctrl.show} ]">
+	<div class="row">
+		<a class="btn discover-btn" ng-click="$ctrl.show = !$ctrl.show">Discover Movies >></a>
+		<div class="visible-xs-block clearfix"></div>
+		<form class="form-inline discover-form" ng-show="!$ctrl.show" ng-class="{'form-anim' : $ctrl.show}">
+			<div class="form-group">				
+				<label>RELEASE YEAR</label>	         
+		        <select 
+				class="custom-select discover-year-container" 
+				id="year-input" 
+				ng-model="$ctrl.yearSelector" 
+				ng-change="$ctrl.go()"						
+				>			  
+				  <option ng-repeat="year in $ctrl.yearsList track by $index" ng-value="$index+$ctrl.yearsAdj">{{$index+$ctrl.yearsAdj}}</option>	  
+				</select>	
+		    </div>
+			<div class="form-group">
+				<label>VOTES</label>				
+				<span 
+				ng-model="$ctrl.rate" 
+				uib-rating 
+				max="10" 
+				read-only="isReadonly" 
+				on-hover="$ctrl.hoveringOver(value)" 
+				on-leave="$ctrl.overStar = null" 
+				ng-click="$ctrl.go()"
+				titles="['one','two','three']" 
+				aria-labelledby="default-rating"
+				tooltip-placement="top" 
+				uib-tooltip="{{$ctrl.votesInput}}"
+				class="votes-padding" 
+				></span>	    					
+			</div>
+			<div class="form-group">
+				<label>GENRES</label>
+				<select 
+				class="custom-select discover-genres-container" 
+				id="genres-input" 
+				ng-model="$ctrl.genresInput" 
+				ng-change="$ctrl.go()"						
+				>
+				  <option selected='selected' value="-1">All</option>
+				  <option ng-repeat="genre in $ctrl.genres" value="{{genre.id}}">{{genre.name}}</option>	  
+				</select>						
+			</div>
+		</form>
+	</div>
+</div>
+
+	<!-- ****************************************** -->				
+	<!-- <div class="container discover-btn-position" ng-class="{shadow : $ctrl.show}">
+		<a class="btn discover-btn" ng-click="$ctrl.show = !$ctrl.show">Discover Movies >></a>
+	</div>
+<div class="discover-bar horizontal-collapse in collapse"  uib-collapse="$ctrl.show">
+	<form class="form-inline discover-form shadow">
+		<div class="form-group">				
+			<label>RELEASE YEAR</label> -->
+	          <!-- ******************************************* -->
+	          <!-- <md-select 
+	          id="year-input"
+	          ng-model="$ctrl.yearSelector" 
+	          aria-label="Select a year" 
+	          class="md-no-underline discover-year-container"
+	          md-container-class="md-select-menu-container"
+	          md-on-close="$ctrl.go()">		
+	            <md-option ng-repeat="year in $ctrl.yearsList track by $index" ng-value="$index+$ctrl.yearsAdj">
+	              {{$index+$ctrl.yearsAdj}}
+	            </md-option>
+	          </md-select> -->
+	          <!-- ******************************************* -->
+<!-- 
+	        <select 
+			class="custom-select discover-year-container" 
+			id="year-input" 
+			ng-model="$ctrl.yearSelector" 
+			ng-change="$ctrl.go()"						
+			>			  
+			  <option ng-repeat="year in $ctrl.yearsList track by $index" ng-value="$index+$ctrl.yearsAdj">{{$index+$ctrl.yearsAdj}}</option>	  
+			</select>	
+	    </div>
+
+		<div class="form-group">
+			<label>VOTES</label>						
+			<span 
+			ng-model="$ctrl.rate" 
+			uib-rating 
+			max="10" 
+			read-only="isReadonly" 
+			on-hover="$ctrl.hoveringOver(value)" 
+			on-leave="$ctrl.overStar = null" 
+			ng-click="$ctrl.go()"
+			titles="['one','two','three']" 
+			aria-labelledby="default-rating"
+			tooltip-placement="top" 
+			uib-tooltip="{{$ctrl.votesInput}}"
+			class="discover-menu-margin-left" 
+			></span>	    					
+		</div>
+
+		<div class="form-group">
+			<label class="discover-menu-margin-left">GENRES</label>
+			<select 
+			class="custom-select discover-genres-container" 
+			id="genres-input" 
+			ng-model="$ctrl.genresInput" 
+			ng-change="$ctrl.go()"						
+			>
+			  <option selected='selected' value="-1">All</option>
+			  <option ng-repeat="genre in $ctrl.genres" value="{{genre.id}}">{{genre.name}}</option>	  
+			</select>						
+		</div>
+	</form>
+</div>
+ -->				

@@ -1,0 +1,27 @@
+<div ng-repeat="movie in $ctrl.list">
+	<div class="row">
+		<div class="col-md-2 col-sm-2 col-xs-4 results-list-poster">
+			<a ui-sref="movieDetails({movieId : movie.id})">
+				<img ng-src="http://image.tmdb.org/t/p/w92{{movie.poster_path}}" ng-if="movie.poster_path" class="img-responsive">
+				<img ng-src="images/poster-replacement.png" ng-if="!movie.poster_path" width="92px" class="img-responsive" >
+			</a>
+			<div class="hidden-lg hidden-md hidden-sm">
+				<h4>{{movie.release_date | date: 'yyyy'}}</h4>
+				<stars-rating rating="movie.vote_average"></stars-rating>		
+			</div>
+		</div>
+		<div class="col-md-7 col-sm-8 col-xs-7">
+			<a ui-sref="movieDetails({movieId : movie.id})"><h4>{{movie.title}}</h4></a>
+			<p>{{movie.overview}}</p>
+		</div>
+		<div class="col-md-3 col-sm-2 hidden-xs">
+			<h4>{{movie.release_date | date: 'yyyy'}}</h4>
+			<stars-rating rating="movie.vote_average"></stars-rating>		
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<hr class="results-list-hr">
+		</div>
+	</div>
+</div>

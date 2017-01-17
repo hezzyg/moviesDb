@@ -1,0 +1,17 @@
+<!-- <div id="navbar-search" class="nav navbar-nav shadow"> -->
+    <form class="navbar-nav form-horizontal" id="navbar-search" ng-submit="$ctrl.submit(searchTerm)">
+        <div class="form-group">        
+            <div class="input-group">            
+                <input type="text" name="movie" placeholder="Search for movies..." class="form-control" ng-model="searchTerm" />
+                <span class="input-group-btn hidden-xs">
+                  <button type="button" class="btn btn-navbar-search scheme-btn" ng-click="$ctrl.submit(searchTerm)">Search
+                  </button>
+                </span>                
+                <!-- For XS screens -->
+                <span class="input-group-addon search-btn-addon hidden-lg hidden-md hidden-sm" ng-click="$ctrl.submit(searchTerm)">
+                    <span class="glyphicon glyphicon-search "></span>
+                </span>
+            </div>        
+        </div>                      
+    </form>  
+<!-- </div>
