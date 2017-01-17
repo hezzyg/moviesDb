@@ -1,6 +1,5 @@
 
 /*Extra small devices*/
-/*@media screen and (max-width: 767px) {*/
 @media screen and (min-width: 1px) and (max-width: 767px) { 
 	#navbar-search{
 		width: 85%;
@@ -42,9 +41,7 @@
 	}
 
 	.discover-bar-open {
-		width: 100%;	
-		/*width: auto;*/
-		/*display: block;*/
+		width: 100%;
 		max-height: none;
 		top: 57.5px;
 		margin-left: 0;
@@ -54,11 +51,10 @@
 		margin-left: unset;
 		padding-top: 0;	
 		display: block;	
-		/*margin-top: 10px;*/
-		/*display: block;*/
 	}
 
 	.form-anim {
+		 -webkit-transition: 0.3s;
 		transition: 0.3s;
 	}
 
