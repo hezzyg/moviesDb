@@ -2,7 +2,7 @@
 <html ng-app="MoviesDb">
 <head>
 	<title>OPEN SOURCE MOVIES DB</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Latest compiled and minified CSS BOOTSTRAP-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Optional theme -->
@@ -12,9 +12,7 @@
 	<!-- Oswald font -->
 	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
 	<!-- Pacifico font  -->
-	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-	<!-- BOOTSTRAP slider css -->
-	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.3/css/bootstrap-slider.min.css"> -->
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">	
 	<!-- Angular Material style sheet -->
   	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 	<!-- MAIN CSS -->
@@ -26,19 +24,12 @@
 </head>
 <body>
 <div class="container wrraper shadow">
-	<navbar-component></navbar-component>
-	
 
-	<!-- <div class="container margin-top"> -->
-		<!-- <div class="row" style="height:100%"> -->
-			<!-- <div class="container" style="height:100%"> -->
-				<!-- <div class="row padding-top-20 margin-top">				 -->
+	<navbar-component></navbar-component>
+
+			
 	<ui-view autoscroll="false"></ui-view>	
-				<!-- </div> -->
-				<!-- FOOTER -->	
-			<!-- </div> -->
-		<!-- </div> -->
-	<!-- </div> -->
+				
 </div>
 
 <footer>
