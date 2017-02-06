@@ -26,7 +26,7 @@ function StarsController () {
 
 angular.module('MoviesDb')
 .component('starsRating', {
-	templateUrl: 'src/templates/stars-rating.template.html',
+	templateUrl: 'src/stars-rating/stars-rating.template.html',
 	controller: StarsController,
 	bindings: {
 		rating: '<'

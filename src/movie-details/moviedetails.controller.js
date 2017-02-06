@@ -33,7 +33,7 @@ function movieDetailsController ($rootScope, details, MoviesService, CONST, $tim
 			return (list.length - 1);
 		};
 		
-		$ctrl.popoverTemplateUrl = 'src/templates/actor-info-popover.template.html';
+		$ctrl.popoverTemplateUrl = 'src/actor-details/actor-info-popover.template.html';
 
 		$ctrl.getInfo = function (id, $index) {
 			

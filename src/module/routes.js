@@ -16,7 +16,7 @@ function RoutesConfig ($stateProvider, $urlRouterProvider, modalStateProvider) {
 	$stateProvider
 	.state('home', {
 		url: '/',
-		templateUrl: 'src/templates/home.template.html',		
+		templateUrl: 'src/home/home.template.html',		
 		controller: 'HomeController as homeCtrl',
 		resolve: {
 			randomMovies: ['MoviesService', function (MoviesService) {
@@ -32,7 +32,7 @@ function RoutesConfig ($stateProvider, $urlRouterProvider, modalStateProvider) {
 	})	
 	.state ('search', {
 		url: '/search/{movieName}',
-		templateUrl: 'src/templates/search-results.template.html',
+		templateUrl: 'src/search-results/search-results.template.html',
 		controller: 'SearchResultsController',
 		controllerAs: 'searchResultsCtrl',
 		resolve: {
@@ -43,7 +43,7 @@ function RoutesConfig ($stateProvider, $urlRouterProvider, modalStateProvider) {
 	})
 	.state ('movieDetails', {
 		url: '/movie-details/{movieId}',
-		templateUrl: 'src/templates/moviedetails.template.html',
+		templateUrl: 'src/movie-details/moviedetails.template.html',
 		controller: 'movieDetailsController',
 		controllerAs: 'movieDetailsCtrl',
 		resolve: {
@@ -54,7 +54,7 @@ function RoutesConfig ($stateProvider, $urlRouterProvider, modalStateProvider) {
 	})
 	.state ('actorDetails', {
 		url: '/actor-details/{actorId}',
-		templateUrl: 'src/templates/actor-details.template.html',
+		templateUrl: 'src/actor-details/actor-details.template.html',
 		controller: 'ActorController',
 		controllerAs: 'actorCtrl',
 		resolve: {
@@ -65,7 +65,7 @@ function RoutesConfig ($stateProvider, $urlRouterProvider, modalStateProvider) {
 	})
 	.state('fullCast', {
 		url: '/full-cast/{movieId}',
-		templateUrl: 'src/templates/full-cast.template.html',
+		templateUrl: 'src/full-cast/full-cast.template.html',
 		controller: 'FullCastController',
 		controllerAs: 'FullCastCtrl',
 		resolve: {

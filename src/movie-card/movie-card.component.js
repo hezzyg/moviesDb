@@ -19,7 +19,7 @@ function MovieCardController ($timeout, $document) {
 
 angular.module('MoviesDb')
 .component('movieCard', {
-	templateUrl: 'src/templates/movie-card.template.html',
+	templateUrl: 'src/movie-card/movie-card.template.html',
 	controller: MovieCardController,
 	bindings: {
 		movie: '<'

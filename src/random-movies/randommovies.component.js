@@ -65,7 +65,7 @@ function RandomMoviesController (MoviesService, CONST, $rootScope, $document, $t
 
 angular.module('MoviesDb')
 .component ('randomMovies', {
-	templateUrl: 'src/templates/radommovies.template.html',
+	templateUrl: 'src/random-movies/randommovies.template.html',
 	controller: RandomMoviesController, 
 	bindings: {
 		movies: '<',

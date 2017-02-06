@@ -114,15 +114,13 @@
 						
 							<div ng-repeat="actor in movieDetailsCtrl.movie.credits.cast | limitTo : 4">
 								<div class="clearfix castRow hidden-xs hidden-sm" ng-if="$index % 2 == 0"></div>
-								<div class="col-md-5 col-sm-12 col-xs-11 middle">
-									<div class="castPic"
-										
-											uib-popover-template="movieDetailsCtrl.popoverTemplateUrl" 
-											popover-placement="right" 
-											popover-animation="true" 
-											popover-trigger="{outsideClick: outsideClick}"
-											ng-click="movieDetailsCtrl.getInfo(actor.id, $index)">
-										
+								<div class="col-md-5 col-sm-12 col-xs-11 middle noOutline"
+								uib-popover-template="movieDetailsCtrl.popoverTemplateUrl" 
+								popover-placement="top-left" 
+								popover-animation="true" 
+								popover-trigger="{outsideClick: outsideClick}"
+								ng-click="movieDetailsCtrl.getInfo(actor.id, $index)">
+									<div class="castPic">	
 											<img  
 												class="castPic img-responsive" 
 												ng-src="https://image.tmdb.org/t/p/w45/{{actor.profile_path}}"
@@ -130,7 +128,7 @@
 											<img  
 												class="castPic img-responsive" 
 												ng-src="images/person.png"
-												ng-if="!actor.profile_path">								
+												ng-if="!actor.profile_path">
 									</div>
 									<div class="castDesc">						
 										<span class="castName">{{actor.name}}</span><br/>

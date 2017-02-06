@@ -14,14 +14,8 @@ h2{
 }
 
 #movieTitle {
-	/*float: left;*/
 	margin-top: 0;
 }
-/*
-#poster{
-	width: 342px;
-	z-index: 10;	
-}*/
 
 #detailMovieRow{
 	
@@ -47,9 +41,14 @@ h2{
 	top: -10px;
 }
 
-.castPic{	
+.noOutline, .noOutline:focus {
+	outline: none;
+}
+
+.castPic, .castPic:focus{	
 	float: left;
 	margin-right: 12px;
+	outline: none;
 }
 
 .castPic:hover {

@@ -87,7 +87,7 @@ function DiscoverController ($state, MoviesService, CONST) {
 
 angular.module('MoviesDb')
 .component('discoverMovies', {
-	templateUrl: 'src/templates/discover-movies.template.html',
+	templateUrl: 'src/discover/discover-movies.template.html',
 	controller: DiscoverController,	
 	bindings: {
 		genres: '<'

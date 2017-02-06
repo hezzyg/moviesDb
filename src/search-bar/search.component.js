@@ -16,7 +16,7 @@ function SearchController ($state) {
 
 angular.module('MoviesDb')
 .component('searchBar', {
-	templateUrl: 'src/templates/search-bar.template.html',
+	templateUrl: 'src/search-bar/search-bar.template.html',
 	controller: SearchController
 });
 

@@ -34,7 +34,7 @@
 			{{actorCtrl.info.deathday | date: 'd/M/yyyy'}}	
 			<hr>				
 		</div>
-		<div ng-if="actorCtrl.info.birthday && !actor.info.deathday">
+		<div ng-if="actorCtrl.info.birthday && !actorCtrl.info.deathday">
 			<h4 class="scheme-color-4">Age</h4>
 			{{actorCtrl.age}}			
 			<hr>				
@@ -56,7 +56,7 @@
 			<h4 class="scheme-color-4">Died on</h4>
 			{{actorCtrl.info.deathday | date: 'd/M/yyyy'}}
 		</div>
-		<div ng-if="actorCtrl.info.birthday && !actor.info.deathday" class="col-sm-4 col-xs-12 center actor-params">
+		<div ng-if="actorCtrl.info.birthday && !actorCtrl.info.deathday" class="col-sm-4 col-xs-12 center actor-params">
 			<h4 class="scheme-color-4">Age</h4>
 			{{actorCtrl.age}}			
 		</div>

@@ -10,7 +10,7 @@ function MoviesCreditController () {
 
 angular.module('MoviesDb')
 .component('movieCredits', {
-	templateUrl: 'src/templates/actor-movies-credit.template.html',
+	templateUrl: 'src/actor-details/actor-movies-credit/actor-movies-credit.template.html',
 	controller: MoviesCreditController,
 	bindings: {
 		movieslist: '<'

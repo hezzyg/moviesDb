@@ -12,7 +12,7 @@ function NavBarController () {
 
 angular.module('MoviesDb')
 .component('navbarComponent', {
-	templateUrl: 'src/templates/navbar.template.html',
+	templateUrl: 'src/navbar/navbar.template.html',
 	controller: NavBarController,
 	bindings: {
 
